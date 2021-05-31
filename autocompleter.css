@@ -151,3 +151,13 @@ li .input-box-mic {
     transition: box-shadow 100ms;
     outline: none;
   }
+.nav-search {
+    display: none;
+}
+.results .nav-search {
+    padding: 20px 0 20px 0;
+    display: inline-flex;
+}
+.results .search-bar {
+    display: none;
+}
