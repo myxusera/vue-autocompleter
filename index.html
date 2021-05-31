@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <title>Google</title>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="autocompleter.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="cities.js"></script>
+    <script src="autocompleter.js"></script>
+</head>
+
+<body>
+<div id="app" class="body" :class="[ showResults ? 'results' : '' ]">
+    <div class="search-bar">
+        
+        <v-autocompleter v-model="googleSearch" :options="cities" @enter="toggleResults"
+                                 @keypress.enter="submit"></v-autocompleter>            
+    </div>          
+</body>
+<script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        googleSearch: '',
+        cities: window.cities,
+        showResults: false,
+        isFocused: false,
+        activeResult: 0,
+        isInAutocompleter: false,
+        filteredCities: [],
+      },
+      methods: {
+        toggleFocused(value = undefined) {
+          if (value === undefined) {
+            return this.isFocused = !this.isFocused
+          }
+          this.isFocused = value
+        },
+        reset() {
+          this.googleSearch = ''
+          this.toggleResults(false)
+        },
+        toggleResults() {
+          this.showResults = true;
+        }
+      },
+  
+    });
+  </script>
+</html>
