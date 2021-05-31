@@ -11,11 +11,14 @@
 
 <body>
 <div id="app" class="body" :class="[ showResults ? 'results' : '' ]">
-    <div class="search-bar">
-        
+    <div class="search-bar">  
         <v-autocompleter v-model="googleSearch" :options="cities" @enter="toggleResults"
                                  @keypress.enter="submit"></v-autocompleter>            
-    </div>          
+    </div>   
+    <div class="nav-search">
+      <v-autocompleter v-model="googleSearch" :options="cities" @enter="toggleResults"
+                       @keypress.enter="submit"></v-autocompleter>
+  </div>       
 </body>
 <script>
     var app = new Vue({
